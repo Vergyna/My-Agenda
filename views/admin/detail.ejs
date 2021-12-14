@@ -1,0 +1,38 @@
+<div class="row justify-content-center mt-4">
+    <h2><%= agenda.nama_kegiatan %></h2>
+</div>
+<hr>
+<div class="row justify-content-center mt-4">
+  <table class="table table-borderless" id="myTable">
+    <thead class="table">
+          <tr>
+            <th style="width: 100px;" scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td><h5>Tanggal</h5></td>
+              <td><%= agenda.tanggal %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><h5>Waktu</h5></td>
+              <td><%= agenda.waktu %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><h5>Tempat</h5></td>
+              <td><%= agenda.tempat %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><h5>Keterangan</h5></td>
+              <td><%= agenda.keterangan %></td>
+            </tr>
+          </tbody>
+      </table>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+            <div class="col-6 mt-5">
+                <h1>Edit Agenda</h1>
+                <form method="POST" action="/agenda?_method=PUT">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Nama Kegiatan</label>
+                      <div class="row">
+                          <input type="text" class="form-control" placeholder="Nama Kegiatan" id="Nama Kegiatan" name="nama_kegiatan" value="<%= agenda.nama_kegiatan %>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Telepon</label>
+                      <div class="row">
+                          <input type="number" class="form-control" placeholder="Telepon" id="telepon" name="telepon" value="<%= agenda.telepon %>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Tanggal</label>
+                      <div class="row">
+                          <input type="date" class="form-control" id="tanggal" name="tanggal" value="<%= agenda.tanggal %>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Waktu</label>
+                        <div class="row">
+                            <input type="time" class="form-control" id="waktu" name="waktu" value="<%= agenda.waktu %>" required>
+                        </div>
+                    </div>
+                    <label for="username" class="form-label">Keterangan</label>
+                    <div class="mb-3">
+                        <div class="row">
+                            <textarea rows="3" class="form-control" placeholder="Keterangan" id="Keterangan" name="keterangan" value="<%= agenda.keterangan %>" required></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tempat</label>
+                        <div class="row">
+                            <input type="text" class="form-control" placeholder="Tempat" id="Tempat" name="tempat" value="<%= agenda.tempat %>" required>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="agendaId" value="<%= agenda.agendaId %>">
+
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+
+                  </form>
+            </div>
+    </div>
+</div>

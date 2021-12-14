@@ -1,0 +1,42 @@
+<div class="row justify-content-center mt-4">
+  <h2>Daftar Agenda</h2>
+</div>
+<hr>
+<div class="row justify-content-center mt-4">
+  <div class="col">
+    <a href="/admin/anggota/add" class="btn btn-primary">Tambah Anggota</a>
+  </div>
+  <div class="col">
+    <input class="form-control me-2" id="myInput" type="search" onkeyup="myFunction()" placeholder="Search" aria-label="Search">
+  </div>
+</div>
+<div class="row justify-content-center mt-4">
+<table class="table table-striped table-hover" id="myTable">
+  <thead class="table-success">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nama Kegiatan</th>
+          <th scope="col">Tanggal</th>
+          <th scope="col">Waktu</th>
+          <th scope="col">Tempat</th>
+          <th scope="col">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% data.forEach((agenda, i) => { %>
+          <tr>
+            <th scope="row"><%= i + 1 %> </th>
+            <td>
+              <a href="/<%= agenda.agendaId %>">
+                <%= agenda.nama_kegiatan %>
+              </a>
+            </td>
+            <td><%= agenda.tanggal %> </td>
+            <td><%= agenda.waktu %> </td>
+            <td><%= agenda.tempat %> </td>
+            <td><%= agenda.keterangan %> </td>
+          </tr>
+          <% }) %>
+        </tbody>
+    </table>
+</div>

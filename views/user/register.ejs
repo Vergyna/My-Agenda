@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+            <div class="col-6 mt-5">
+                <h1>Register</h1>
+                <form method="POST" action="/user/register">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email address</label>
+                      <div class="row">
+                          <input type="text" class="form-control col" placeholder="email" id="email" name="email" aria-describedby="emailHelp" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Full Name</label>
+                      <div class="row">
+                          <input type="text" class="form-control" placeholder="full name" id="nama" name="nama" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Telepon</label>
+                      <div class="row">
+                          <input type="number" class="form-control" placeholder="Telepon" id="telepon" name="telepon" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Tanggal Lahir</label>
+                      <div class="row">
+                          <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="passowrd" class="form-label">Password</label>
+                      <div class="row">
+                          <input type="password" class="form-control" placeholder="min 8 characters" id="password" name="password" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label">Confirm Password</label>
+                      <div class="row">
+                          <input type="password" class="form-control" placeholder="same with above" id="confirmPassword" name="confirmPassword" required>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Register</button>
+
+                    <p class="mb-5">Already have an account? <a href="/login">Log in!</a></p>
+                    <input type="hidden" id="admin" name="admin" value="false">
+                  </form>
+            </div>
+    </div>
+</div>
