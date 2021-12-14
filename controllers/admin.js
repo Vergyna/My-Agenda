@@ -46,6 +46,29 @@ module.exports.Login = async (req, res) => {
     }
 };
 
+exports.Edit = async (req, res, next) => {
+    try {
+        console.log(req.body);
+
+        await User.updateOne({agendaId: req.body.agendaId}, {
+            $set : {
+                nama: req.body.nama,
+                telepon: req.body.telepon,
+                tanggal_lahir: req.body.tanggal_lahir,
+                email: req.body.email,
+            }
+        })
+
+        console.log('Profil edited!');
+        return res.redirect('/admin/profil');
+        
+    } catch (error) {
+        console.error("edit-eror", error);
+        return res.redirect('/admin/profil/edit')
+        
+    }
+}
+
 exports.Logout = (req, res, next) => {
     delete req.session.adminId;
     return res.redirect('/admin/login')

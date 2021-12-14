@@ -4,7 +4,6 @@
 <hr>
 <div class="row justify-content-center mt-4">
   <div class="col">
-    <a href="/admin/anggota/add" class="btn btn-primary">Tambah Anggota</a>
   </div>
   <div class="col">
     <input class="form-control me-2" id="myInput" type="search" onkeyup="myFunction()" placeholder="Search" aria-label="Search">
@@ -27,9 +26,15 @@
           <tr>
             <th scope="row"><%= i + 1 %> </th>
             <td>
-              <a href="/<%= agenda.agendaId %>">
-                <%= agenda.nama_kegiatan %>
-              </a>
+              <% if (agenda.selesai) { %>
+                <a href="/<%= agenda.agendaId %>">
+                  <div class="text-success"><i class="bi bi-check-lg"></i><strong> <%= agenda.nama_kegiatan %></strong></div>
+                </a>
+              <% } else { %>
+                <a href="/<%= agenda.agendaId %>">
+                  <strong><%= agenda.nama_kegiatan %></strong>
+                </a>
+              <% } %> 
             </td>
             <td><%= agenda.tanggal %> </td>
             <td><%= agenda.waktu %> </td>

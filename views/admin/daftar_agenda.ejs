@@ -4,7 +4,6 @@
 <hr>
 <div class="row justify-content-center mt-4">
     <div class="col">
-      <a href="/admin/anggota/add" class="btn btn-primary">Tambah Anggota</a>
     </div>
     <div class="col">
       <input class="form-control me-2" id="myInput" type="search" onkeyup="myFunction()" placeholder="Search" aria-label="Search">
@@ -33,17 +32,21 @@
               <td><%= agenda.tanggal %> </td>
               <td><%= agenda.keterangan %> </td>
               <td>
-                <div class="row">
-                    <a href="/admin/edit_agenda/<%= agenda.agendaId %>" class="btn btn-primary"><i class="bi bi-info-circle"></i></a>
-                  <form method="POST" action="">
-                      <button type="submit" class="btn btn-success" onclick="return confirm('Are You Sure?')"><i class="bi bi-info-circle"></i></button>
-                      <input type="hidden" id="agendaId" name="agendaId" value="<%= agenda.agendaId %>">
-                  </form>
-                  <form method="POST" action="/agenda?_method=DELETE">
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure?')"><i class="bi bi-info-circle"></i></button>
-                      <input type="hidden" id="agendaId" name="agendaId" value="<%= agenda.agendaId %>">
-                  </form>
-                </div>
+                <% if (agenda.selesai) { %>
+                 <h5 class="text-success">Selesai</h5>
+                <% } else { %>
+                  <div class="row">
+                    <a href="/admin/edit_agenda/<%= agenda.agendaId %>" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                    <form method="POST" action="/agenda/selesai">
+                        <button type="submit" class="btn btn-success" onclick="return confirm('Are You Sure?')"><i class="bi bi-check-lg"></i></button>
+                        <input type="hidden" id="agendaId" name="agendaId" value="<%= agenda.agendaId %>">
+                    </form>
+                    <form method="POST" action="/agenda?_method=DELETE">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure?')"><i class="bi bi-trash-fill"></i></button>
+                        <input type="hidden" id="agendaId" name="agendaId" value="<%= agenda.agendaId %>">
+                    </form>
+                  </div>
+                <% } %> 
               </td>
             </tr>
             <% }) %>

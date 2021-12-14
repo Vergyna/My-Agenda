@@ -61,6 +61,32 @@ exports.Delete = async (req, res, next) => {
         return res.redirect('/admin/daftar_agenda');
     }
     catch(error) {
+        console.error('delete-agenda-error', error);
+        return res.redirect('/admin/tambah_agenda');
+    }
+}
 
+exports.Selesai = async (req, res, next) => {
+    try{
+        const agenda = await Agenda.findOne({agendaId: req.body.agendaId});
+        console.log(agenda);
+
+        if(!agenda){
+            console.log("Agenda tidak ditemukan!");
+            return res.redirect('/admin/daftar_agenda')
+        }
+
+        await Agenda.updateOne({agendaId: req.body.agendaId}, {
+            $set : {
+                selesai: true
+            }
+        })
+
+        console.log('Agenda ended!');
+        return res.redirect('/admin/daftar_agenda');
+    }
+    catch(error) {
+        console.error('end-agenda-error', error);
+        return res.redirect('/admin/tambah_agenda');
     }
 }

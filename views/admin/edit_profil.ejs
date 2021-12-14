@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+            <div class="col-6 mt-5">
+                <h1>Edit Profil</h1>
+                <form method="POST" action="/admin?_method=PUT">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Nama</label>
+                      <div class="row">
+                          <input type="text" class="form-control" placeholder="Nama" id="Nama" name="nama" value="<%= profil.nama %>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Telepon</label>
+                      <div class="row">
+                          <input type="number" class="form-control" placeholder="Telepon" id="telepon" name="telepon" value="<%= profil.telepon %>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Tanggal Lahir</label>
+                      <div class="row">
+                          <input type="date" class="form-control" id="tanggal" name="tanggal_lahir" value="<%= profil.tanggal_lahir%>" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Email</label>
+                        <div class="row">
+                            <input type="email" class="form-control" id="email" name="email" value="<%= profil.email%>" required>
+                        </div>
+                    </div>
+                    
+
+                    <input type="hidden" name="agendaId" value="<%= profil.userId %>">
+
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+
+                  </form>
+            </div>
+    </div>
+</div>

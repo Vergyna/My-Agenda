@@ -1,5 +1,5 @@
 <div class="row justify-content-center mt-4">
-    <h2><%= agenda.nama_kegiatan %></h2>
+    <h2>Profil Admin</h2>
 </div>
 <hr>
 <div class="row justify-content-center mt-4">
@@ -15,24 +15,27 @@
         <tbody>
             <tr>
               <th scope="row"></th>
-              <td><h5>Tanggal</h5></td>
-              <td><%= agenda.tanggal %></td>
+              <td><h5>Nama</h5></td>
+              <td><%= profil.nama%></td>
             </tr>
             <tr>
               <th scope="row"></th>
-              <td><h5>Waktu</h5></td>
-              <td><%= agenda.waktu %></td>
+              <td><h5>Telepon</h5></td>
+              <td><%= profil.telepon%></td>
             </tr>
             <tr>
               <th scope="row"></th>
-              <td><h5>Tempat</h5></td>
-              <td><%= agenda.tempat %></td>
+              <td><h5>Tanggal Lahir</h5></td>
+              <td><%= profil.tanggal_lahir %></td>
             </tr>
             <tr>
               <th scope="row"></th>
-              <td><h5>Keterangan</h5></td>
-              <td><%= agenda.keterangan %></td>
+              <td><h5>Email</h5></td>
+              <td><%= profil.email %></td>
             </tr>
           </tbody>
       </table>
+</div>
+<div class="row">
+    <a href="/admin/profil/edit" class="btn btn-primary">Edit Profil</a>
 </div>

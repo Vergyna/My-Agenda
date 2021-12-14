@@ -3,8 +3,12 @@ const router = express.Router();
 const AdminController = require('../controllers/admin');
 
 const Agenda = require('../models/agenda');
+const User = require('../models/user')
 
 router.post('/login',  AdminController.Login)
+router.put('/', AdminController.Edit)
+
+router.get('/logout', AdminController.Logout)
 
 router.get('/login', (req, res, next) => {
     if(!req.session.adminId){
@@ -42,6 +46,29 @@ router.get('/tambah_agenda', async (req, res, next) => {
         res.render('admin/tambah_agenda', {title: 'Tambah Agenda', layout: 'layouts/admin_layout'});
     }
 });
+
+router.get('/profil', async (req, res, next) => {
+    if(!req.session.adminId){
+        res.redirect('/admin/login');
+    }
+    else{
+        const profil = await User.findOne({userId: req.session.adminId})
+        res.render('admin/profil', {title: 'Profil', layout: 'layouts/admin_layout', profil});
+    }
+});
+
+
+router.get('/profil/edit', async (req, res, next) => {
+    if(!req.session.adminId){
+        res.redirect('/admin/login');
+    }
+    else{
+        const profil = await User.findOne({userId: req.session.adminId})
+        res.render('admin/edit_profil', {title: 'Edit', layout: 'layouts/admin_layout', profil});
+    }
+});
+
+
 
 router.get('/edit_agenda/:agendaId', async (req, res, next) => {
     if(!req.session.adminId){
