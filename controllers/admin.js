@@ -55,6 +55,7 @@ exports.Edit = async (req, res, next) => {
                 nama: req.body.nama,
                 telepon: req.body.telepon,
                 tanggal_lahir: req.body.tanggal_lahir,
+                alamat: req.body.alamat,
                 email: req.body.email,
             }
         })
